@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="mr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vivah Biodata Maker</title>
+<meta name="description" content="Create a beautiful Marathi or English marriage biodata in minutes. Choose a format, fill your details, download as PDF or image — free.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&family=Tiro+Devanagari+Marathi&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#" class="brand"><span class="brand-mark">॥</span> <span data-i18n="brand">विवाह बायोडाटा मेकर</span></a>
+    <nav>
+      <a href="#select-format" data-i18n="navFormat">फॉरमॅट</a>
+      <a href="#details" data-i18n="navDetails">माहिती</a>
+      <a href="#preview" data-i18n="navPreview">प्रिव्ह्यू</a>
+      <button id="langToggle" class="btn btn-ghost" type="button">English</button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1 data-i18n="heroTitle">काही मिनिटांत सुंदर लग्नाचा बायोडाटा बनवा</h1>
+    <p data-i18n="heroSub">फॉरमॅट निवडा, माहिती भरा आणि PDF किंवा इमेज म्हणून डाउनलोड करा — पूर्णपणे मोफत.</p>
+    <a href="#select-format" class="btn btn-primary" data-i18n="heroCta">सुरू करा</a>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <!-- STEP 1: SELECT FORMAT -->
+  <section id="select-format" class="step">
+    <h2><span class="step-no">1</span> <span data-i18n="step1">फॉरमॅट निवडा</span></h2>
+    <div id="formatGrid" class="format-grid"></div>
+  </section>
+
+  <div class="builder">
+    <!-- STEP 2: DETAILS -->
+    <section id="details" class="step form-col">
+      <h2><span class="step-no">2</span> <span data-i18n="step2">तुमची माहिती भरा</span></h2>
+
+      <div class="card">
+        <h3 data-i18n="topSection">शीर्षक</h3>
+        <label><span data-i18n="godImage">देवाचे चिन्ह</span>
+          <select id="godSymbol">
+            <option value="ganesh">॥ श्री गणेशाय नमः ॥</option>
+            <option value="om">ॐ</option>
+            <option value="swastik">卐 शुभ विवाह</option>
+            <option value="none">—</option>
+          </select>
+        </label>
+        <label><span data-i18n="headingText">मथळा</span>
+          <input id="headingText" type="text" value="बायोडाटा">
+        </label>
+        <label class="photo-field"><span data-i18n="photo">फोटो</span>
+          <input id="photoInput" type="file" accept="image/*">
+          <button type="button" id="removePhoto" class="btn btn-ghost small" data-i18n="removePhoto">फोटो काढा</button>
+        </label>
+      </div>
+
+      <div id="sections"></div>
+
+      <div class="card">
+        <h3 data-i18n="addSection">नवीन विभाग जोडा</h3>
+        <div class="row">
+          <input id="newSectionName" type="text" placeholder="उदा. इतर माहिती">
+          <button type="button" id="addSectionBtn" class="btn btn-secondary">+</button>
+        </div>
+      </div>
+
+      <div class="actions-inline">
+        <button type="button" id="resetBtn" class="btn btn-ghost" data-i18n="reset">सर्व रीसेट करा</button>
+      </div>
+    </section>
+
+    <!-- STEP 3: PREVIEW -->
+    <section id="preview" class="step preview-col">
+      <h2><span class="step-no">3</span> <span data-i18n="step3">प्रिव्ह्यू व डाउनलोड</span></h2>
+      <div class="preview-scroller">
+        <div id="sheetHolder" class="sheet-holder">
+          <div id="sheet" class="sheet"></div>
+        </div>
+      </div>
+      <div class="download-bar">
+        <button type="button" id="pdfBtn" class="btn btn-primary" data-i18n="dlPdf">PDF डाउनलोड करा</button>
+        <button type="button" id="pngBtn" class="btn btn-secondary" data-i18n="dlImg">इमेज डाउनलोड करा</button>
+        <button type="button" id="printBtn" class="btn btn-ghost" data-i18n="print">प्रिंट</button>
+      </div>
+      <p class="hint" data-i18n="privacy">तुमची माहिती फक्त तुमच्या ब्राउझरमध्ये राहते; ती कुठेही पाठवली जात नाही.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© <span id="year"></span> <span data-i18n="brand">विवाह बायोडाटा मेकर</span></p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
